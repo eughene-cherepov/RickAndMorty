@@ -1,24 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.scss';
+import MainLayout from './layouts/MainLayout';
+import {client} from './services/contentful'
 
 function App() {
+  const [data, setData] = useState<any>();
+  useEffect(() => {
+    client.getEntries().then(r => {
+      console.log(r);
+      setData(r);
+    }).catch(e => console.log(e))
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <MainLayout>
+        {data?.items.map((item: any) => <p>{item.fields.name}</p>)}
+      </MainLayout>
     </div>
   );
 }

@@ -1,0 +1,19 @@
+@import '../../../styles/mixin.scss';
+
+.App {
+  text-align: center;
+}
+
+.AppHeader {
+  background-color: #aaacaf;
+  max-height: 5vh;
+  @include flex(row, center, space-between);
+  font-size: calc(10px + 2vmin);
+  color: white;
+  // di
+}
+
+.customTitle {
+  background-color: rgb(255, 188, 188);
+  @include flex(column);
+}
