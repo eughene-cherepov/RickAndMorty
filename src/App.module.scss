@@ -16,3 +16,7 @@
   background-color: red;
   @include flex(column);
 }
+
+body {
+  font-size: 1.171vw;
+}

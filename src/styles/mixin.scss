@@ -3,5 +3,10 @@
   flex-direction: $direction;
   align-items: $alignItems;
   justify-content: $justifyContent;
-  wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin size ($height, $width) {
+  height: $height;
+  width: $width;
 }

@@ -1,0 +1,46 @@
+@import '../../../styles/mixin.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+}
+.container {
+  flex: 1;
+  @include flex(row, center, center);
+
+  .box {
+    border: 2px solid grey;
+    @include flex(row, center, space-between);
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5rem;
+  }
+}
+
+.input {
+  border: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+  @include size(1rem, 20rem);
+  font-size: 1.2rem;
+}
+
+.searchIcon {
+  @include size(1rem, 1rem);
+
+  margin-right: 10px;
+  color: #000;
+}
+
+.button {
+  border: 2px solid grey;
+  padding: 10px;
+  background-color: #fff;
+  margin-left: 10px;
+  border-radius: 1rem;
+}
+
