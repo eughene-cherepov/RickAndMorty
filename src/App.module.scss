@@ -1,7 +1,14 @@
 @import './styles/mixin.scss';
 
+* {
+  font-family: ".SF NS Mono";
+}
+
 .App {
   text-align: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .AppHeader {
@@ -17,6 +24,64 @@
   @include flex(column);
 }
 
-body {
+html {
   font-size: 1.171vw;
+}
+
+.image {
+  height: 15rem;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  @include phone {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  };
+  padding: 10px;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  max-width: 100%;
+  min-width: 100%;
+  overflow: hidden;
+
+  justify-content: center;
+  
+  @media screen and (max-width: 630px) {
+    grid-template-columns: repeat(1, 90vw);
+  }
+  @media screen and (min-width: 630px) and (max-width: 940px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: 940px) and (max-width: 1250px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (min-width: 1250px) and (max-width: 1560px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media screen and (min-width: 1560px) and (max-width: 1870px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.contentItem {
+  padding: .5rem;
+}
+
+p.itemTitle {
+  font-size: 1.2rem;
+  font-weight: 100;
+  color: aqua;
+}
+
+.loadMoreButton {
+  height: 50px;
+  margin: 10px 0px;
+  width: 30%;
 }

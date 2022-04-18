@@ -1,0 +1,46 @@
+@import '../../../styles/mixin.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+.contentItem {
+  border-radius: 10px;
+  border: 1px solid #aaacaf;
+  position: relative;
+
+  .img{
+    transition: 1s ease;
+
+    &:hover{
+      transform: scale(.98);
+    }
+
+    &:hover~.btn{
+      opacity: .9;
+    }
+  }
+
+  .btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    opacity: 0;
+
+    &:hover{
+      opacity: .9;
+    }
+  }
+}
+
+div.modalOverlay{
+  //background-color: red;
+}

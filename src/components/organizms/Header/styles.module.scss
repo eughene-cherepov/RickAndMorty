@@ -6,11 +6,11 @@
 
 .AppHeader {
   background-color: #aaacaf;
-  max-height: 5vh;
+  height: 60px;
   @include flex(row, center, space-between);
   font-size: calc(10px + 2vmin);
   color: white;
-  // di
+  width: 100%;
 }
 
 .customTitle {

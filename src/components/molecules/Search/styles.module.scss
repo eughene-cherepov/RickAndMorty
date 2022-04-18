@@ -7,6 +7,7 @@
   box-sizing: border-box;
 }
 .container {
+
   flex: 1;
   @include flex(row, center, center);
 
@@ -16,6 +17,8 @@
     padding: 10px;
     background-color: #fff;
     border-radius: 5rem;
+    width: 50%;
+    max-width: 350px;
   }
 }
 
@@ -27,6 +30,8 @@
   }
   @include size(1rem, 20rem);
   font-size: 1.2rem;
+  max-width: 350px;
+  width: 100%;
 }
 
 .searchIcon {
@@ -34,6 +39,7 @@
 
   margin-right: 10px;
   color: #000;
+  fill: red;
 }
 
 .button {
@@ -41,6 +47,6 @@
   padding: 10px;
   background-color: #fff;
   margin-left: 10px;
-  border-radius: 1rem;
+  border-radius: 100rem;
 }
 

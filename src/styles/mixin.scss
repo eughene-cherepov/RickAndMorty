@@ -10,3 +10,15 @@
   height: $height;
   width: $width;
 }
+
+@font-face {
+  font-family: 'Red Hat Mono 1';
+  src: url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@300&display=swap') format("woff2");
+  //@import url();
+}
+
+@mixin phone {
+  @media (max-width: 568px) {
+    @content
+  }
+}

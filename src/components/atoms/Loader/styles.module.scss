@@ -1,0 +1,75 @@
+.container {
+  height: 2rem;
+  width: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 1rem;
+  margin: 2rem auto 0;
+  position: relative;
+
+  &:before {
+    content: '';
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(255, 194, 126, .4);
+    position: absolute;
+    //border-radius: 1rem;
+    filter: blur(10px);
+  }
+
+  .dot {
+    height: 2rem;
+    width: 2rem;
+    background-color: #9a9aef;
+    border-radius: 1rem;
+    //flex: 1;
+
+    @keyframes firstCircleAnimation {
+      0% {
+        transform: translateY(10px) scale(1);
+      }
+      25%{
+        transform: scale(0.8);
+      }
+      50% {
+        transform: translateY(-10px) scale(1);
+      }
+      75%{
+        transform: scale(0.8);
+      }
+      100% {
+        transform: translateY(10px) scale(1);
+      }
+    }
+
+    &:nth-child(1) {
+      animation-name: firstCircleAnimation;
+      animation-timing-function: linear;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      background-color: rgba(255, 136, 0, .5);
+    }
+
+    &:nth-child(2) {
+      animation-name: firstCircleAnimation;
+      animation-timing-function: linear;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-delay: 0.5s;
+      background-color: rgba(255, 136, 0, .5);
+    }
+
+    &:nth-child(3) {
+      animation-name: firstCircleAnimation;
+      animation-timing-function: linear;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-delay: 1s;
+      background-color: rgba(255, 136, 0, .5);
+    }
+  }
+}
+
