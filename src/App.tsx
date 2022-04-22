@@ -1,25 +1,26 @@
-import React, { useState, useRef, useEffect } from "react";
-import styles from "./App.module.scss";
-import MainLayout from "./layouts/MainLayout";
-import isEmpty from "lodash/isEmpty";
-import { HomeScreenCard } from "components/molecules";
-import { Button } from "./components/atoms";
-import { useActions } from "utils/hooks";
-import { texts } from "./static";
+import { useState, useRef, useEffect } from 'react';
+
+import isEmpty from 'lodash/isEmpty';
+
+import { Loader } from 'components/atoms';
+import { HomeScreenCard } from 'components/molecules';
+import MainLayout from 'layouts/MainLayout';
+import { useActions } from 'utils/hooks';
+
+import styles from './App.module.scss';
 
 function App(): JSX.Element {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { allCharacters, charactersLoading, loadMoreCharacters } = useActions();
 
   const ref = useRef<HTMLInputElement>(null);
+  const appRef = useRef(null);
 
   useEffect(() => {
     loadMoreCharacters(currentPage);
   }, [currentPage]);
 
-  const isBottom = () =>
-    // @ts-ignore
-    ref?.current?.getBoundingClientRect()?.bottom <= window.innerHeight;
+  const isBottom = () => !!ref.current && ref.current.getBoundingClientRect()?.bottom <= window.innerHeight;
 
   const trackScrolling = () => {
     isBottom() && setCurrentPage((prev) => prev + 1);
@@ -27,27 +28,29 @@ function App(): JSX.Element {
 
   useEffect(() => {
     if (!charactersLoading) {
-      document.addEventListener("scroll", trackScrolling);
+      document.addEventListener('scroll', trackScrolling);
     }
     return () => {
-      document.removeEventListener("scroll", trackScrolling);
+      document.removeEventListener('scroll', trackScrolling);
     };
   }, [charactersLoading]);
 
-  const renderContent = () =>
-    allCharacters.length > 0 &&
-    allCharacters.map((item: any, index: number) => (
-      <HomeScreenCard item={item} index={index} key={index} />
+  useEffect(() => {
+    window.scrollTo(appRef?.current!);
+  }, []);
+
+  const renderContent = () => allCharacters.length
+    && allCharacters.map((item: any) => (
+      <HomeScreenCard item={item} key={item.id} />
     ));
 
   return (
-    <div className={styles.App}>
+    <div className={styles.App} ref={appRef}>
       <MainLayout isLoading={!isEmpty(allCharacters)}>
-        {/*{console.log("1 -> ", charactersLoading)}*/}
         <div className={styles.contentWrapper} ref={ref}>
           {renderContent()}
         </div>
-        <Button className={styles.loadMoreButton}>{texts["Load more"]}</Button>
+        {charactersLoading && <Loader />}
       </MainLayout>
     </div>
   );

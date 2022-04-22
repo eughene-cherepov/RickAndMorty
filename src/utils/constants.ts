@@ -1,4 +1,4 @@
 export enum images {
-    loop = 'loop',
-    logo = 'logo'
+  loop = 'loop',
+  logo = 'logo'
 }

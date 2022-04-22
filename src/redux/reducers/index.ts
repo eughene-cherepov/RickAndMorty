@@ -1,1 +1,1 @@
-export { rickAndMortyReducer } from "./rickAndMortyReducer";
+export { rickAndMortyReducer } from './rickAndMortyReducer';

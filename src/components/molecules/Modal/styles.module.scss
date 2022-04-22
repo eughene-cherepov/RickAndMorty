@@ -4,8 +4,7 @@
   flex: 1;
   @include flex(row, center, center);
   @include size(100%, 100%);
-  background-color: black;
-  opacity: .9;
+  background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 10;
 }

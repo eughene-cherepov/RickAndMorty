@@ -1,6 +1,4 @@
-// import styles from './styles.module.scss';
-import React from "react";
-import { FC } from "react";
+import { FC } from 'react';
 
 interface IProps {
   onClick?: () => void;
@@ -13,10 +11,8 @@ export const Button: FC<IProps> = ({
   disabled,
   className,
   children,
-}) => {
-  return (
-    <button className={className} onClick={onClick} disabled={disabled}>
-      {children}
-    </button>
-  );
-};
+}) => (
+  <button className={className} onClick={onClick} disabled={disabled}>
+    {children}
+  </button>
+);

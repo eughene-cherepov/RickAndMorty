@@ -1,1 +1,1 @@
-export { texts } from "./texts";
+export { texts } from './texts';

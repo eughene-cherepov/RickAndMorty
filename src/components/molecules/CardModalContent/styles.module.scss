@@ -1,8 +1,8 @@
 @import '../../../styles/mixin.scss';
 
-.container {
-  flex: 1;
-  @include flex(row, center, center);
-  @include size(100%, 100%);
+div.container {
+  @include size(50vw, 50vh);
+  background-color: white;
+  opacity: 1;
 }
 
